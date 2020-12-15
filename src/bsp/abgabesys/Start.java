@@ -17,7 +17,7 @@ import bsp.abgabesys.view.Prozentanzeige;
 public class Start {
 	//TODO: Pfad zur Datei angeben, die überwacht werden soll-
 	public static String ordner = "./Ueberwacht";
-
+	
 	public static void main(String[] args) {
 		File f = new File(ordner); // überwachter Ordner
 		if(f.exists() && f.isDirectory()) {
