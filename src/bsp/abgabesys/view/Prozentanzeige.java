@@ -1,5 +1,6 @@
 package bsp.abgabesys.view;
 
+import java.awt.BorderLayout;
 import javax.swing.*;
 
 /**
@@ -11,6 +12,7 @@ public class Prozentanzeige extends JFrame{
 	private int maxAnzahl;
 	private int abgaben;
 	private JLabel anzeige;
+	private JProgressBar bar;
 
 	/**
 	 * Initialisiert eine neue Anzeige auf Basis einer Konsolen-Ausgabe
@@ -22,8 +24,10 @@ public class Prozentanzeige extends JFrame{
 		this.abgaben = 0;
 		this.anzeige = new JLabel(String.format("Bisher %d von %d Abgaben im Abgabeordner (%.2f", 
 				this.abgaben, this.maxAnzahl, this.abgaben*100.0/this.maxAnzahl)+ "%)");
+		this.bar = new JProgressBar(0, max);
 		this.setBounds(10, 10, 350, 100);
-		this.add(this.anzeige);
+		this.add(this.anzeige, BorderLayout.PAGE_END);
+		this.add(this.bar);
 		this.setVisible(true);
 	}
 
@@ -33,6 +37,7 @@ public class Prozentanzeige extends JFrame{
 	public void anzeigen() {
 		this.anzeige.setText(String.format("Bisher %d von %d Abgaben im Abgabeordner (%.2f", 
 				this.abgaben, this.maxAnzahl, this.abgaben*100.0/this.maxAnzahl)+ "%)");
+		this.bar.setValue(this.abgaben);
 	}
 
 
