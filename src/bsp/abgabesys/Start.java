@@ -21,6 +21,7 @@ public class Start {
 	public static void main(String[] args) {
 		File f = new File(ordner); // überwachter Ordner
 		if(f.exists() && f.isDirectory()) {
+			int schueler = Integer.parseInt(JOptionPane.showInputDialog("Anzahl der Schüler?"));
 
 			// Initialisierung des Datenobjekts für die Abgabe (Subjekt). Dieses Objekt soll dann
 			// die Benachrichtigungen für alle Anzeigen (Observer) ausschicken, sobald sich etwas
@@ -29,7 +30,7 @@ public class Start {
 			Abgaben abgaben = new Abgaben();
 			// Anzeige (Observer) für das Abgaben-Objekt
 			// TODO: Die Anzeige-Klasse so ändern, dass sie dem Observer-Pattern entspricht
-			Prozentanzeige anz  = new Prozentanzeige(27);
+			Prozentanzeige anz  = new Prozentanzeige(schueler);
 
 
 			// Ausgabe zum Überprüfen des Ablaufes
